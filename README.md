@@ -1,24 +1,27 @@
 # Z_knowledge_graph
-从零开始的知识图谱生活，构建一个百科知识图谱，并用它完成一些简单的任务。
 
-个人入门知识图谱过程中的学习笔记，算是半教程类的，指引初学者对知识图谱的各个任务有一个初步的认识。目前暂无新增计划。
+（本リポジトリは[Pelhans/Z_knowledge_graph](https://github.com/Pelhans/Z_knowledge_graph)をフォークし日本語訳したものです。）
 
-# 简介
-为了构建中文百科类知识图谱，我们参考漆桂林老师团队做的[zhishi.me](http://zhishi.me/)。目标是包含百度百科、互动百科、中文wiki百科的知识，千万级实体数量和亿级别的关系数目。目前已完成百度百科和互动百科部分，其中百度百科词条4,190,390条，互动百科词条4,382,575条。转换为RDF格式得到三元组 128,596,018个。存入 neo4j中得到节点 16,498,370个，关系 56,371,456个，属性 61,967,517个。<br>
+ナレッジグラフをゼロから作り、百科事典的なナレッジグラフを構築し、それを使っていくつかの簡単なタスクを実施します。
 
-![百度百科知识图谱演示](http://pelhans.com/img/in-post/kg_neo4j_cypher/baidu_yanshi.png)
+ナレッジグラフの様々なタスクについて、初心者をガイドするセミチュートリアルのようなものです。 現在のところ、新たな追加は予定していません。
 
-# 资源下载
+# はじめに
+中国の百科事典的なナレッジグラフを構築するために、樂桂林さんのチームが作った[zhishi.me](http://zhishi.me/)を参考にさせていただきました。 百度百科、インタラクティブ百科、中国語wiki百科の知識を含めることが目標で、エンティティ数は数千万、関係数は数十億にのぼる。 百度百科と対話型百科のパートが完成し、百度百科は4,190,390項目、対話型百科は4,382,575項目となりました。 RDF形式に変換し、128,596,018個のトリプルを取得。 neo4jに格納されているのは、16,498,370ノード、56,371,456関係、61,967,517属性である。<br>
 
-[百度百科 SQL 文件下载 百度网盘 提取码 1234](https://pan.baidu.com/s/1D-aZdziYdh4FzPGT1lSB4A)
+![百度百科事典ナレッジグラフデモ](http://pelhans.com/img/in-post/kg_neo4j_cypher/baidu_yanshi.png)
 
-[互动百科 SQL 文件下载 百度网盘 提取码 rza6](https://link.zhihu.com/?target=https%3A//pan.baidu.com/s/1WqDW_trdIXxNBxqT1j733Q)
+# リソースダウンロード
 
-[百度百科 Neo4j 文件下载 百度网盘 提取码 z6fj](https://link.zhihu.com/?target=https%3A//pan.baidu.com/s/1kUQLIb1TbHsWaIvYp-ncHQ)
+[バイドゥ SQL ファイルダウンロード バイドゥコム 抽出コード 1234](https://pan.baidu.com/s/1D-aZdziYdh4FzPGT1lSB4A)
 
-[互动百科 Neo4j 文件下载 百度网盘 提取码 kdkt](https://link.zhihu.com/?target=https%3A//pan.baidu.com/s/1Ba9oxM05fgCQw-cadPkhaw)
+[インタラクティブ百科事典 SQL ファイルダウンロード バイドゥコム 抽出コード rza6](https://link.zhihu.com/?target=https%3A//pan.baidu.com/s/1WqDW_trdIXxNBxqT1j733Q)
 
-# 目录
+[バイドゥ Neo4j ファイルダウンロード バイドゥコム 抽出コード z6fj](https://link.zhihu.com/?target=https%3A//pan.baidu.com/s/1kUQLIb1TbHsWaIvYp-ncHQ)
+
+[インタラクティブ百科事典 Neo4j ファイルダウンロード バイドゥコム 抽出コード kdkt](https://link.zhihu.com/?target=https%3A//pan.baidu.com/s/1Ba9oxM05fgCQw-cadPkhaw)
+
+# カタログ
 希望在该图谱上尝试应用以下技术：    
 
 * [百度百科与互动百科的知识抽取](http://pelhans.com/2019/01/04/kg_from_0_note7/)    
