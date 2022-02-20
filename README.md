@@ -22,88 +22,94 @@
 [インタラクティブ百科事典 Neo4j ファイルダウンロード バイドゥコム 抽出コード kdkt](https://link.zhihu.com/?target=https%3A//pan.baidu.com/s/1Ba9oxM05fgCQw-cadPkhaw)
 
 # カタログ
-希望在该图谱上尝试应用以下技术：    
+このマップで次のテクニックを試してみてください：    
 
-* [百度百科与互动百科的知识抽取](http://pelhans.com/2019/01/04/kg_from_0_note7/)    
-   * 半结构化数据    
-      * 百度百科爬虫   
-      * 互动百科爬虫    
-   * 非结构化数据
-      * 微信公众号爬虫  
-      * 虎嗅网爬虫    
-* 非结构化文本的知识抽取    
-    * [制作类似于NYT的远程监督学习语料--baidu_6w](http://pelhans.com/2019/01/04/kg_from_0_note9/)    
-    * [神经网络关系抽取](https://github.com/thunlp/OpenNRE)    
+* [Baidu百科事典とインタラクティブ百科事典からの知識の抽出](http://pelhans.com/2019/01/04/kg_from_0_note7/)    
+    * 半構造化データ
+       * Baidu Encyclopedia Crawler
+       * インタラクティブ百科事典クローラー
+    * 非構造化データ
+       * WeChatパブリックアカウントクローラー
+       * タイガースニッフィングWebクローラー
+* 非構造化テキストからの知識の抽出    
+    * [遠隔教師あり学習のためのNYT風コーパスの作成 - baidu_6w](http://pelhans.com/2019/01/04/kg_from_0_note9/)    
+    * [ニューラルネットワークによる関係性抽出](https://github.com/thunlp/OpenNRE)    
    
 * 知识存储    
-    * [D2RQ 的使用](http://pelhans.com/2019/02/11/kg_from_0_note10/)    
-    * [Jena 的使用](http://pelhans.com/2019/02/11/kg_from_0_note11/)    
+    * [D2RQの使用について](http://pelhans.com/2019/02/11/kg_from_0_note10/)    
+    * [Jenaの使用について](http://pelhans.com/2019/02/11/kg_from_0_note11/)    
 * 知识融合    
-    * [Silk 实战](http://pelhans.com/2019/02/12/kg_from_0_note12/)    
+    * [Silkの動作](http://pelhans.com/2019/02/12/kg_from_0_note12/)    
 * KBQA    
-    * [基于 REfO 的简单KBQA](http://pelhans.com/2018/09/03/kg_from_0_note3/)    
+    * [REfOをベースにしたシンプルなKBQA](http://pelhans.com/2018/09/03/kg_from_0_note3/)    
 * 语义搜索
-    * [基于elasticsearch 的简单语义搜索 支持实体检索、实体属性检索和条件检索](http://pelhans.com/2018/09/04/kg_from_0_note4/)
+    * [elasticsearchをベースとしたシンプルなセマンティック検索 エンティティ検索、エンティティ属性検索、条件検索に対応](http://pelhans.com/2018/09/04/kg_from_0_note4/)
 
-# 获取数据
-## 半结构化数据
+# データを取得する
+## 半構造化データ
 
-半结构化数据从百度百科和互动百科获取，采用scrapy框架，目前电影领域和通用领域两类。
+半構造化データは、scrapyフレームワークを用いて、百度百科とインタラクティブ百科から取得し、現在、映画領域と一般領域の2つのカテゴリに分類している。
 
-* 通用领域百科数据：百度百科词条4,190,390条，互动百科词条3,677,150条。爬取细节请见[从零开始构建知识图谱（七）百科知识图谱构建（一）百度百科的知识抽取](http://pelhans.com/2019/01/04/kg_from_0_note7/)    
-* 电影领域: 百度百科包含电影22219部，演员13967人，互动百科包含电影13866部，演员5931 人。项目详细介绍请见[从零开始构建知识图谱（一）半结构化数据的获取](http://pelhans.com/2018/09/01/kg_from_0_note1/)
+* 一般ドメイン百科事典データ：Baidu百科事典4,190,390件、インタラクティブ百科事典3,677,150件。 クローリングの詳細は[ゼロからの知識グラフ構築（VII）百科事典の知識グラフ構築（I）百科事典からの知識抽出](http://pelhans.com/2019/01/04/kg_from_0_note7/)    
+* 映画：百度百科は22,219本の映画と13,967人の俳優・女優を収録し、双方向百科は13,866本の映画と5,931人の俳優・女優を収録しています。 プロジェクトの詳細は、[ゼロからのナレッジグラフ構築（I）半構造化データの取得](http://pelhans.com/2018/09/01/kg_from_0_note1/)
 
-## 非结构化数据
+## 非構造化データ
 
-非结构化数据主要来源为微信公众号、虎嗅网新闻和百科内的非结构化文本。
+非構造化データの主なソースは、WeChat Public、TigerSniff.comニュース、Wikipediaからの非構造化テキストです。
 
-微信公众号爬虫获取公众号发布文章的标题、发布时间、公众号名字、文章内容、文章引用来源，对应 ie/craw/weixin_spider。虎嗅网爬虫 获取虎嗅网新闻的标题、简述、作者、发布时间、新闻内容，对应 ie/craw/news_spider。
+WeChat Publicクローラー
+ie/craw/weixin_spider に対応する公開番号で公開された記事のタイトル、投稿時間、公開名、記事内容、記事引用元を取得します。
 
-# 非结构化文本的知识抽取
-## 基于Deepdive的知识抽取    
+TigerSniffing.comクローラー
+ie/craw/news_spider に対応する TigerSniff.com のニュースのタイトル、簡単な説明、著者、投稿時間、ニュース内容を取得します。
 
-Deepdive是由斯坦福大学InfoLab实验室开发的一个开源知识抽取系统。它通过弱监督学习，从非结构化的文本中抽取结构化的关系数
-据 。本次实战基于OpenKG上的[支持中文的deepdive：斯坦福大学的开源知识抽取工具（三元组抽取）](http://www.openkg.cn/    dataset/cn-deepdive)，我们基于此，抽取电影领域的演员-电影关系。
+## 構造化されていないテキストからの知識抽出
+## Deepdiveに基づく知識抽出
 
-详细介绍请见[从零开始构建知识图谱（五）Deepdive抽取演员-电影间关系](http://pelhans.com/2018/10/10/kg_from_0_note5/)
+Deepdiveは、スタンフォード大学のInfoLab Labが開発したオープンソースの知識抽出システムです。
+弱教師付き学習により、非構造化テキストから構造化された関係データを抽出する。
 
-## 神经网络关系抽取
+この実際の戦略はOpenKGに基づいています[中国語の詳細をサポート：スタンフォード大学のオープンソース知識抽出ツール（トリプル抽出）](http://www.openkg.cn/dataset/cn-deepdive)，これに基づいて、映画の領域で俳優と映画の関係を抽出します。
 
-利用自己的百科类图谱，构建远程监督数据集，并在OpenNRE上运行。最终生成的数据集包含关系事实18226，无关系(NA)实体对336 693，总计实体对354 919，用到了462个关系(包含NA)。
+詳しい紹介は[知識グラフをゼロから構築する（V）俳優と映画の関係を抽出するDeepdive](http://pelhans.com/2018/10/10/kg_from_0_note5/)をご覧ください。
 
-详细介绍请见[从零开始构建知识图谱（九）百科知识图谱构建（三）神经网络关系抽取的数据集构建与实践](http://pelhans.com/2019/01/04/kg_from_0_note9/)
+## ニューラルネットワークによる関係性抽出
 
-# 结构化数据到 RDF
+独自の百科事典クラスグラフを活用して、リモートで監視されたデータセットを構築し、OpenNREで実行します。結果のデータセットには、18,226のリレーショナルファクト、336,693のリレーションなし（NA）エンティティペア、354,919の合計エンティティペア、および462のリレーション（NAを含む）が含まれています。
 
-结构化数据到RDF由两种主要方式，一个是通过[direct mapping](https://www.w3.org/TR/rdb-direct-mapping/)，另一个通过[R2RML](https://www.w3.org/TR/r2rml/#acknowledgements)语言这种，基于R2RML语言的方式更为灵活，定制性强。对于R2RML有一些好用的工具，此处我们使用d2rq工具，它基于R2RML-KIT。
+詳しくはこちらをご覧ください[ゼロからの知識グラフの構築（9）百科事典知識グラフの構築（3）データセットの構築とニューラルネットワーク関係抽出の実践](http://pelhans.com/2019/01/04/kg_from_0_note9/)
 
-详细介绍请见[从零开始构建知识图谱（二）数据库到 RDF及 Jena的访问](http://pelhans.com/2019/02/11/kg_from_0_note10/)
+# RDFへの構造化データ
 
-![D2RQ 示例](http://pelhans.com/img/in-post/kg_from_0/d2rq_web_view_lemmas.png)
+構造化データのRDF化は、大きく分けて[ダイレクトマッピング](https://www.w3.org/TR/rdb-direct-mapping/)によるアプローチと[R2RML](https://www.w3.org/TR/r2rml/#)によるアプローチの2つがあります。 このように、R2RML言語ベースのアプローチは、より柔軟でカスタマイズが可能です。 R2RMLにはいくつかの優れたツールがありますが、ここではR2RML-KITをベースとしたd2rqツールを使用します。
 
-# 知识存储
-## 将数据存入 Neo4j
+詳しくは[知識グラフをゼロから構築する(II) データベースからRDF、Jena Accessへ](http://pelhans.com/2019/02/11/kg_from_0_note10/)
 
-图数据库是基于图论实现的一种新型NoSQL数据库。它的数据数据存储结构和数据的查询方式都是以图论为基础的。图论中图的节本元素为节点和边，对应于图数据库中的节点和关系。我们将上面获得的数据存到 Neo4j中。
+![D2RQの例](http://pelhans.com/img/in-post/kg_from_0/d2rq_web_view_lemmas.png)
 
-百科类图谱请见：[从零开始构建知识图谱（八）百科知识图谱构建（二）将数据存进neo4j](http://pelhans.com/2019/01/04/kg_from_0_note8/)    
-电影领域的请见[从零开始构建知识图谱（六）将数据存进Neo4j](http://pelhans.com/2018/11/06/kg_neo4j_cypher/)
+## ナレッジストレージ
+## Neo4j へのデータの預け入れ
+
+グラフデータベースは、グラフ理論に基づいて実装された新しいタイプのNoSQLデータベースである。 そのデータの格納構造やデータの照会方法は、グラフ理論に基づいている。 グラフ理論におけるグラフの要素はノードとエッジであり、これはグラフデータベースにおけるノードとリレーションに相当する。 上記で取得したデータをNeo4jに格納します。
+
+百科事典的グラフについては、[ゼロからの知識グラフ構築⑧百科事典的知識グラフの構築②neo4jへのデータ保存](http://pelhans.com/2019/01/04/kg_from_0_note8/)をご覧ください。   
+映画領域については、[ゼロからのナレッジグラフ構築（VI）Neo4jへのデータ格納](http://pelhans.com/2018/11/06/kg_neo4j_cypher/)をご覧ください。
 
 # KBQA
-## 基于 REfO 的简单KBQA
-基于浙江大学在openKG上提供的 [基于 REfO 的 KBQA 实现及示例](http://openkg.cn/tool/eb483ee4-3be1-4d4b-974d-970d35307e8d),在自己的知识图谱上实现简单的知识问答系统。    
+## REfOに基づくシンプルなKBQA
+浙江大学がopenKGで提供している[REFO-based KBQA implementation and examples](http://openkg.cn/tool/eb483ee4-3be1-4d4b-974d-970d35307e8d)を参考に、自分の知識グラフに簡単な知識問答システムを実装してみましょう。   
 
-详细介绍请见[从零开始构建知识图谱（三）基于REfO的简单知识问答](http://pelhans.com/2018/11/06/kg_neo4j_cypher/)
+詳しくは、[ゼロから作る知識グラフ(III) REfOを使った簡単な知識クイズ](http://pelhans.com/2018/11/06/kg_neo4j_cypher/)をご覧ください。
 
-### 示例
-![基于REfO 的 KBQA 示例](http://pelhans.com/img/in-post/kg_from_0/example_REfO_KBQA.png)
+### 例
+![REfOをベースとしたKBQAの例](http://pelhans.com/img/in-post/kg_from_0/example_REfO_KBQA.png)
 
-# 语义搜索
-## 基于elasticsearch 的简单语义搜索
-本项目是对浙大的[ 基于elasticsearch的KBQA实现及示例 ](http://openkg.cn/tool/elasticsearch-kbqa)的简化版本，并在自己的数据库上做了实现。
+## セマンティック検索
+## elasticsearch を利用したシンプルなセマンティック検索
+このプロジェクトは、ZZUさんの[elasticsearchに基づくKBQAの実装と事例](http://openkg.cn/tool/elasticsearch-kbqa)を簡略化し、独自のデータベースで実装したものです。
 
-详细介绍请见[从零开始构建知识图谱(四)基于ES的简单语义搜索](http://pelhans.com/2018/09/03/kg_from_0_note3/)
+詳しくは、[知識グラフをゼロから作る (IV) ESによる簡易セマンティック検索](http://pelhans.com/2018/09/03/kg_from_0_note3/) をご覧ください。
 
-### 示例
+### 例
 
-![基于elasticsearch的简单语义搜索](http://pelhans.com/img/in-post/kg_from_0/semantic.JPG)
+![elasticsearchによるシンプルなセマンティック検索](http://pelhans.com/img/in-post/kg_from_0/semantic.JPG)
